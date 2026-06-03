@@ -14,7 +14,10 @@ export default function Loader() {
       wrap.style.opacity = "0";
       setTimeout(() => {
         wrap.style.display = "none";
-        if (main) main.classList.add("loaded");
+        // Reveal the main content by setting opacity directly (avoids needing #main.loaded CSS)
+        if (main) {
+          main.style.opacity = "1";
+        }
       }, 350);
     };
 
@@ -31,7 +34,17 @@ export default function Loader() {
   }, []);
 
   return (
-    <div className="loader-wrap" ref={wrapRef}>
+    /* .loader-wrap: fixed, full screen, z-200, bg-brand-pink */
+    <div
+      ref={wrapRef}
+      className="fixed inset-0 z-[200] overflow-hidden bg-[#bb0168]"
+    >
+      {/*
+        .pin — the animated "Loading / VideoForce :" text
+        position: absolute; top:50%; left:30%; margin-left:50px
+        ::after pseudo "VideoForce : " and ::before animated "Loading" text
+        are CSS-only with @keyframes pinanim — kept in globals.css @theme
+      */}
       <div className="pin" />
     </div>
   );
