@@ -68,7 +68,7 @@ export default function Possibilities() {
   }, []);
 
   return (
-    <section className="relative float-left w-full py-[120px] bg-brand-pink overflow-hidden">
+    <section className="relative float-left w-full py-[120px] !bg-brand-pink overflow-hidden">
       {/* Right-side background image */}
       <div
         className="absolute top-0 right-0 w-[60%] h-[120%] bg-cover bg-center z-1"

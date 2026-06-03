@@ -8,7 +8,7 @@ const TESTIMONIAL_VIDEOS = ["gvTdspVmzF8", "XTlSYy5qpSo", "2wdwxCbrfxk"];
 
 export default function Testimonials() {
   return (
-    <section id="sec6" className="relative float-left w-full py-[110px] bg-white overflow-hidden">
+    <section id="sec6" className="relative float-left w-full py-[40px] bg-white overflow-hidden">
       <SectionTitle
         subtitle="Testimonials //"
         eyebrow="Reviews"
