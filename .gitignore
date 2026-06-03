@@ -1,0 +1,90 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+/test-results/
+/playwright-report/
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+.cursorignore
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+.history
+
+# Database - Keep migrations and scripts, ignore backups
+/database/*
+!/database/migrations/
+
+# Version file (generated during build)
+/VERSION
+!/database/scripts/
+!/database/README.md
+/database/migrations/*.backup
+/database/backups/
+/database/seeds/
+
+# Scripts - Organized by purpose
+/scripts/*
+!/scripts/migrations/
+!/scripts/utils/
+!/scripts/README.md
+/scripts/temp/
+scripts/node_modules/
+
+# Supabase
+/supabase
+
+# Other
+.cursorignore
+
+# Ignore backup files and old migration folders
+*.backup
+/migrations/
+/database-migrations/
+/sql/src/app/api-backup-needs-query-fix/**
+/backups/
+
+# Documentation website dependencies
+docs/website/node_modules/
+
+# Build logs
+build-output.log
+
+AGENTS.md
+.kiro
+# Sentry Config File
+.env.sentry-build-plugin
