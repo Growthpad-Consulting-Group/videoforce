@@ -47,8 +47,8 @@ export default function HomePage() {
       {/* Scroll side navigation — matches original scroll-nav-wrap */}
       <ScrollSideNav sections={SECTIONS} />
 
-      {/* All content sections — wrapped in .content matching original */}
-      <div className="content">
+      {/* All content sections */}
+      <div className="float-left w-full relative z-5 max-md:pl-0">
         {/* sec2 — About */}
         <About />
 
