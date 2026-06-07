@@ -69,10 +69,12 @@ export async function POST(req: NextRequest) {
   }
 
   // ── Send email via Nodemailer ────────────────────────────────────────────
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_EMAIL_TO } =
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_EMAIL_TO, CONTACT_RECIPIENT_EMAIL } =
     process.env;
 
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !CONTACT_EMAIL_TO) {
+  const recipientEmail = CONTACT_EMAIL_TO || CONTACT_RECIPIENT_EMAIL;
+
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !recipientEmail) {
     console.error("Missing SMTP environment variables");
     return NextResponse.json(
       { error: "Server configuration error. Please try again later." },
@@ -90,7 +92,7 @@ export async function POST(req: NextRequest) {
   try {
     await transporter.sendMail({
       from: `"Video Force Website" <${SMTP_USER}>`,
-      to: CONTACT_EMAIL_TO,
+      to: recipientEmail,
       replyTo: email,
       subject: `New contact: ${subject} from ${name}`,
       text: [
