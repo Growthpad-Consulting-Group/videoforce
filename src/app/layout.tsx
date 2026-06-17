@@ -1,16 +1,4 @@
-/* LEGACY CSS AUDIT
- * Migrated (Task 2.6): .color-bg → bg-brand-yellow
- */
-
-<<<<<<< HEAD
-import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
-import Loader from "@/components/ui/Loader";
 import GlobalScrollParallax from "@/components/ui/GlobalScrollParallax";
-import { Icon } from "@iconify/react";
-=======
-import GlobalScrollParallax from "@/components/ui/GlobalScrollParallax";
->>>>>>> master
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
@@ -74,36 +62,7 @@ export default function RootLayout({
           />
         </noscript>
 
-<<<<<<< HEAD
-        {/* Page loader */}
-        <Loader />
-
-        {/* Main wrapper */}
-        <div
-          id="main"
-          className="h-full w-full absolute top-0 left-0 z-[2] opacity-0 transition-opacity duration-[400ms] ease-in-out"
-        >
-          <Header />
-          <div id="wrapper" className="relative float-left w-full z-[3] pl-[80px] max-md:pl-0">
-            {children}
-          </div>
-          <Footer />
-
-          {/* Fixed "Get in Touch" button top-right */}
-          <a
-            className="fixed top-0 right-0 text-[18px] text-white w-[80px] h-[80px] leading-[80px] text-center z-[110] cursor-pointer transition-all duration-200 bg-brand-yellow group"
-            href="/contacts"
-            aria-label="Get in Touch"
-          >
-            <Icon icon="fa6-regular:envelope" className="inline-block align-middle" />
-            <span className="absolute h-[50px] leading-[50px] right-0 top-[80px] px-[30px] text-[10px] uppercase tracking-[2px] min-w-[150px] bg-[#480f66] mt-[10px] opacity-0 invisible transition-all duration-300 group-hover:mt-0 group-hover:opacity-100 group-hover:visible">
-              Get in Touch
-            </span>
-          </a>
-        </div>
-=======
         {children}
->>>>>>> master
 
         {/* ── Analytics (afterInteractive = non-blocking) ──────────────── */}
         <Script

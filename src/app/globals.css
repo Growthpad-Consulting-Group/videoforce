@@ -10,7 +10,6 @@
 
   --font-sans: var(--font-poppins), 'Titillium Web', ui-sans-serif, system-ui, sans-serif;
 
-<<<<<<< HEAD
   /* Loader "Loading / VideoForce :" text reveal */
   --animate-pinanim: pinanim 2.2s ease-out infinite;
   @keyframes pinanim {
@@ -18,8 +17,6 @@
     100% { max-width: 100%; }
   }
 
-=======
->>>>>>> master
   /* Mousey scroll dot */
   --animate-mouse-scroll: mouse-scroll 2.2s cubic-bezier(.15,.41,.69,.94) infinite;
   @keyframes mouse-scroll {
@@ -88,7 +85,6 @@
   section.parallax-section { padding: 120px 0; }
 }
 
-<<<<<<< HEAD
 /* ─── Loader pin animation (CSS content injection — cannot be Tailwind) ─── */
 .pin {
   position: absolute; top: 50%; left: 30%;
@@ -100,8 +96,6 @@
 .pin::after  { content: "VideoForce : "; position: absolute; left: -100%; color: rgba(255,255,255,0.51); }
 .pin::before { content: "Loading"; position: absolute; overflow: hidden; max-width: 0; text-align: left; animation: pinanim 2.2s ease-out infinite; }
 
-=======
->>>>>>> master
 /* ─── Hero word rotation class (animation-delay set via inline style) ────── */
 .hero-decor-word { position: absolute; top: 0; left: 0; opacity: 0; animation: heroWordCycle 6.8s linear infinite; }
 
@@ -142,8 +136,6 @@
 
 /* ─── full-height (used by sec-lines .container child) ──────────────────── */
 .full-height { height: 100%; min-height: 100vh; }
-<<<<<<< HEAD
-=======
 
 /* ─── Admin UI ──────────────────────────────────────────────────────────── */
 .admin-label {
@@ -248,4 +240,3 @@
 .tiptap-prosemirror img.ProseMirror-selectednode {
   outline: 2px solid #bb0168;
 }
->>>>>>> master

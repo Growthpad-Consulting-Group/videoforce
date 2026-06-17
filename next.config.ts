@@ -1,9 +1,5 @@
 import type { NextConfig } from "next";
 
-<<<<<<< HEAD
-const nextConfig: NextConfig = {
-  output: "standalone",
-=======
 const apiUrl = process.env.API_URL ?? "http://localhost:4000";
 
 const nextConfig: NextConfig = {
@@ -20,20 +16,16 @@ const nextConfig: NextConfig = {
       ],
     };
   },
->>>>>>> master
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "embed-fastly.wistia.com",
       },
-<<<<<<< HEAD
-=======
       {
         protocol: "https",
         hostname: "ik.imagekit.io",
       },
->>>>>>> master
     ],
   },
 };

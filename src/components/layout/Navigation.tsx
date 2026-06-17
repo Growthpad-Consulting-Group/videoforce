@@ -11,10 +11,7 @@ const NAV_LINKS = [
   { href: "/#sec4", label: "Case Studies" },
   { href: "/#sec5", label: "Reviews" },
   { href: "/#sec6", label: "Clients" },
-<<<<<<< HEAD
-=======
   { href: "/blog", label: "Blog" },
->>>>>>> master
   { href: "/contacts", label: "Contact Us" },
 ];
 
