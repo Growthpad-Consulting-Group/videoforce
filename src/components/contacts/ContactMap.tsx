@@ -2,8 +2,13 @@
 
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
+<<<<<<< HEAD
 // Mitsumi Business Park, Westlands, Nairobi
 const OFFICE_COORDS = { lat: -1.2634, lng: 36.8038 };
+=======
+// The Westwood Office, Westlands, Nairobi
+const OFFICE_COORDS = { lat: -1.2599, lng: 36.8034 };
+>>>>>>> master
 
 const mapContainerStyle = { width: "100%", height: "360px" };
 
@@ -45,7 +50,11 @@ export default function ContactMap() {
         >
           <Marker
             position={OFFICE_COORDS}
+<<<<<<< HEAD
             title="Video Force — Mitsumi Business Park, Westlands"
+=======
+            title="Video Force — The Westwood Office, Westlands"
+>>>>>>> master
           />
         </GoogleMap>
       </LoadScript>

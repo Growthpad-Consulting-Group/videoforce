@@ -2,11 +2,15 @@
  * Migrated (Task 2.6): .color-bg → bg-brand-yellow
  */
 
+<<<<<<< HEAD
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Loader from "@/components/ui/Loader";
 import GlobalScrollParallax from "@/components/ui/GlobalScrollParallax";
 import { Icon } from "@iconify/react";
+=======
+import GlobalScrollParallax from "@/components/ui/GlobalScrollParallax";
+>>>>>>> master
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
@@ -70,6 +74,7 @@ export default function RootLayout({
           />
         </noscript>
 
+<<<<<<< HEAD
         {/* Page loader */}
         <Loader />
 
@@ -96,6 +101,9 @@ export default function RootLayout({
             </span>
           </a>
         </div>
+=======
+        {children}
+>>>>>>> master
 
         {/* ── Analytics (afterInteractive = non-blocking) ──────────────── */}
         <Script

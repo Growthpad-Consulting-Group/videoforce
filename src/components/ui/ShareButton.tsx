@@ -3,6 +3,10 @@
 import { Icon } from "@iconify/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+<<<<<<< HEAD
+=======
+import { useShareUrl } from "@/hooks/useShareUrl";
+>>>>>>> master
 
 const SHARE_LINKS = [
   {
@@ -51,8 +55,12 @@ export default function ShareButton({ title = "Video Force Kenya" }: Props) {
     setOpen((v) => !v);
   };
 
+<<<<<<< HEAD
   const pageUrl =
     typeof window !== "undefined" ? window.location.href : "https://videoforce.co.ke";
+=======
+  const pageUrl = useShareUrl();
+>>>>>>> master
 
   return (
     <div className="relative">

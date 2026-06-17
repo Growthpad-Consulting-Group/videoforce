@@ -2,6 +2,10 @@
 
 import { Icon } from "@iconify/react";
 import { useEffect } from "react";
+<<<<<<< HEAD
+=======
+import { useShareUrl } from "@/hooks/useShareUrl";
+>>>>>>> master
 
 const NETWORKS = [
   { icon: "fa6-brands:facebook-f", label: "Facebook" },
@@ -22,7 +26,11 @@ export default function ShareOverlay({ isOpen, onClose }: Props) {
     return () => document.removeEventListener("keydown", handler);
   }, [isOpen, onClose]);
 
+<<<<<<< HEAD
   const url = typeof window !== "undefined" ? window.location.href : "https://videoforce.co.ke";
+=======
+  const url = useShareUrl();
+>>>>>>> master
 
   const getHref = (label: string) => {
     const enc = encodeURIComponent(url);
