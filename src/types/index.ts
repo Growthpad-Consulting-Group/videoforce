@@ -75,3 +75,48 @@ export interface ContactApiResponse {
   success?: boolean;
   error?: string;
 }
+
+// ─── Blog Types ───────────────────────────────────────────────────────────────
+
+export interface BlogPostMeta {
+  slug: string;
+  title: string;
+  description: string;
+  /** ISO date string e.g. 2025-06-04 */
+  date: string;
+  author?: string;
+  /** Path under /public or absolute CDN URL */
+  image?: string;
+  tags?: string[];
+  // SEO / metadata overrides
+  /** Overrides <title> in search results (max ~60 chars). Falls back to title. */
+  metaTitle?: string;
+  /** Overrides meta description (max ~160 chars). Falls back to description. */
+  metaDescription?: string;
+  /** Open Graph image for social sharing. Falls back to image. */
+  ogImage?: string;
+  /** Canonical URL if the post is published elsewhere. */
+  canonicalUrl?: string;
+  /** When true, adds <meta name="robots" content="noindex"> */
+  noIndex?: boolean;
+}
+
+export interface BlogPost extends BlogPostMeta {
+  content: string;
+}
+
+export interface BlogPostInput {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  author?: string;
+  image?: string;
+  tags?: string[];
+  content: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  noIndex?: boolean;
+}

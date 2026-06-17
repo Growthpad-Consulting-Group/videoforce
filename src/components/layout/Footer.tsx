@@ -153,7 +153,7 @@ export default function Footer() {
                     {[
                       { label: "Phone :", href: "tel:+254721314242",                   text: "+254721314242" },
                       { label: "Email :", href: "mailto:strategic@videoforce.co.ke",   text: "strategic@videoforce.co.ke" },
-                      { label: "Address", href: "#",                                    text: "7TH FLOOR, MITSUMI BUSINESS PARK, MUTHITHI ROAD, WESTLANDS NAIROBI" },
+                      { label: "Address", href: "#",                                    text: "The Westwood Office, 6th Floor 6A, Comply Guide Advisory, Westlands, Nairobi, Kenya" },
                     ].map(({ label, href, text }) => (
                       <li key={label} className="float-left w-full py-2 uppercase tracking-[2px] text-[11px] font-semibold">
                         <span className="float-left text-left text-brand-purple pr-3">{label}</span>

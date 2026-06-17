@@ -74,7 +74,7 @@ export default function ContactsPage() {
               <div className="flex flex-wrap mx-[-15px]">
                 {[
                   { num: "01", label: "Phone",    value: "+254701850850",               href: "tel:+254701850850" },
-                  { num: "02", label: "Location", value: "7TH FLOOR, MITSUMI BUSINESS PARK, MUTHITHI ROAD, WESTLANDS NAIROBI", href: "#" },
+                  { num: "02", label: "Location", value: "The Westwood Office, 6th Floor 6A, Comply Guide Advisory, Westlands, Nairobi, Kenya", href: "#" },
                   { num: "03", label: "Email",    value: "strategic@videoforce.co.ke",  href: "mailto:strategic@videoforce.co.ke" },
                 ].map(({ num, label, value, href }) => (
                   <div
