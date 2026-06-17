@@ -2,19 +2,13 @@
 
 import type { ContactApiResponse, ContactFormData, ContactFormErrors } from "@/types";
 import Button from "@/components/ui/Button";
-<<<<<<< HEAD
-=======
 import { isRecaptchaConfigured, RECAPTCHA_SITE_KEY } from "@/lib/recaptcha-config";
->>>>>>> master
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-<<<<<<< HEAD
-=======
 const recaptchaEnabled = isRecaptchaConfigured();
 
->>>>>>> master
 const SUBJECTS = ["Order Project", "Request For Quotation", "Other Question"];
 
 // Shared input class — replaces .custom-form input/textarea/select
@@ -55,10 +49,6 @@ export default function ContactForm() {
     e.preventDefault();
     const fieldErrors = validate(fields);
     if (Object.keys(fieldErrors).length > 0) { setErrors(fieldErrors); return; }
-<<<<<<< HEAD
-    const token = recaptchaRef.current?.getValue();
-    if (!token) { setErrors((err) => ({ ...err, recaptcha: "Please complete the reCAPTCHA" })); return; }
-=======
     let recaptchaToken = "";
     if (recaptchaEnabled) {
       const token = recaptchaRef.current?.getValue();
@@ -68,7 +58,6 @@ export default function ContactForm() {
       }
       recaptchaToken = token;
     }
->>>>>>> master
 
     setSubmitting(true);
     setErrors({});
@@ -76,30 +65,18 @@ export default function ContactForm() {
       const res  = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-<<<<<<< HEAD
-        body: JSON.stringify({ ...fields, recaptchaToken: token } satisfies ContactFormData),
-=======
         body: JSON.stringify({ ...fields, recaptchaToken } satisfies ContactFormData),
->>>>>>> master
       });
       const data = (await res.json()) as ContactApiResponse;
       if (!res.ok || data.error) {
         setErrors({ submit: data.error ?? "Something went wrong. Please try again." });
-<<<<<<< HEAD
-        recaptchaRef.current?.reset();
-=======
         if (recaptchaEnabled) recaptchaRef.current?.reset();
->>>>>>> master
         return;
       }
       router.push("/thank-you");
     } catch {
       setErrors({ submit: "Network error. Please try again later." });
-<<<<<<< HEAD
-      recaptchaRef.current?.reset();
-=======
       if (recaptchaEnabled) recaptchaRef.current?.reset();
->>>>>>> master
     } finally {
       setSubmitting(false);
     }
@@ -146,19 +123,12 @@ export default function ContactForm() {
           <Err msg={errors.comments} />
 
           <div className="flex flex-wrap mx-[-15px] mt-2">
-<<<<<<< HEAD
-            <div className="w-full px-[15px] md:w-1/2">
-              <ReCAPTCHA ref={recaptchaRef} sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""} />
-              <Err msg={errors.recaptcha} />
-            </div>
-=======
             {recaptchaEnabled && (
               <div className="w-full px-[15px] md:w-1/2">
                 <ReCAPTCHA ref={recaptchaRef} sitekey={RECAPTCHA_SITE_KEY} />
                 <Err msg={errors.recaptcha} />
               </div>
             )}
->>>>>>> master
             <div className="w-full px-[15px] md:w-1/2">
               <Button variant="color" float type="submit" disabled={submitting}>
                 {submitting ? "Sending..." : "Send Message"}

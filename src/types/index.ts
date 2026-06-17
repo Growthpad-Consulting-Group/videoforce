@@ -75,8 +75,6 @@ export interface ContactApiResponse {
   success?: boolean;
   error?: string;
 }
-<<<<<<< HEAD
-=======
 
 // ─── Blog Types ───────────────────────────────────────────────────────────────
 
@@ -122,4 +120,3 @@ export interface BlogPostInput {
   canonicalUrl?: string;
   noIndex?: boolean;
 }
->>>>>>> master
