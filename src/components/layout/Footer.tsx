@@ -71,10 +71,10 @@ export default function Footer() {
         ref={footerRef}
         className="fixed bg-brand-pink z-2 left-0 md:left-[80px] bottom-0 right-0 overflow-hidden"
       >
-        <div className="relative z-3 pt-[110px] pb-[70px]">
+        <div className="relative z-3 pt-[60px] pb-[40px] md:pt-[110px] md:pb-[70px]">
           <div className="max-w-[1224px] w-[92%] mx-auto relative z-5">
 
-            <div className="flex flex-wrap -mx-[15px]">
+            <div className="flex flex-wrap -mx-[15px] gap-y-10 md:gap-y-0">
 
               {/* Col 1 — Brand name watermark — large vertical text on left edge */}
               <div className="w-full px-[15px] md:w-1/6 relative hidden md:block">
@@ -127,7 +127,11 @@ export default function Footer() {
 
                   {/* Subscribe form */}
                   <div className="mt-7 flex float-left w-full relative">
-                    <form className="float-left w-full relative flex" id="subscribe" onSubmit={handleSubscribe}>
+                    <form
+                      className="float-left w-full relative flex flex-col sm:flex-row"
+                      id="subscribe"
+                      onSubmit={handleSubscribe}
+                    >
                       <input
                         type="text"
                         name="email"
@@ -136,11 +140,11 @@ export default function Footer() {
                         spellCheck={false}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="flex-1 border-none bg-white/10 px-5 py-[15px] text-white placeholder:text-white placeholder:font-normal placeholder:text-xs outline-none"
+                        className="flex-1 min-w-0 border-none bg-white/10 px-5 py-[15px] text-white placeholder:text-white placeholder:font-normal placeholder:text-xs outline-none"
                       />
                       <button
                         type="submit"
-                        className="w-[35%] py-[15px] text-white border-none cursor-pointer bg-brand-purple text-xs uppercase tracking-widest font-semibold"
+                        className="w-full sm:w-[35%] py-[15px] text-white border-none cursor-pointer bg-brand-purple text-xs uppercase tracking-widest font-semibold"
                       >
                         Send
                       </button>
@@ -155,9 +159,12 @@ export default function Footer() {
                       { label: "Email :", href: "mailto:strategic@videoforce.co.ke",   text: "strategic@videoforce.co.ke" },
                       { label: "Address", href: "#",                                    text: "The Westwood Office, 6th Floor 6A, Comply Guide Advisory, Westlands, Nairobi, Kenya" },
                     ].map(({ label, href, text }) => (
-                      <li key={label} className="float-left w-full py-2 uppercase tracking-[2px] text-[11px] font-semibold">
-                        <span className="float-left text-left text-brand-purple pr-3">{label}</span>
-                        <a href={href} className="float-left text-left text-white">{text}</a>
+                      <li
+                        key={label}
+                        className="flex flex-wrap w-full py-2 uppercase tracking-[2px] text-[11px] font-semibold"
+                      >
+                        <span className="text-left text-brand-purple pr-3 shrink-0">{label}</span>
+                        <a href={href} className="text-left text-white break-words">{text}</a>
                       </li>
                     ))}
                   </ul>

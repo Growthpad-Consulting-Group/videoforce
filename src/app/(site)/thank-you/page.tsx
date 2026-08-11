@@ -1,5 +1,6 @@
+import Button from "@/components/ui/Button";
+import { Icon } from "@iconify/react";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Message Sent",
@@ -8,35 +9,41 @@ export const metadata: Metadata = {
 
 export default function ThankYouPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-brand-dark2 px-6 text-center">
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-brand-pink/20 text-brand-pink">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          className="h-8 w-8"
-          aria-hidden="true"
-        >
-          <polyline points="20 6 9 17 4 12" />
-        </svg>
-      </div>
-
-      <h1 className="mb-3 text-3xl font-light text-white md:text-4xl">
-        Message Sent!
-      </h1>
-      <p className="mb-8 max-w-md text-sm leading-relaxed text-white/50">
-        Thanks for reaching out. We&apos;ve received your message and will get back to
-        you within 1 business day.
-      </p>
-
-      <Link
-        href="/"
-        className="inline-block rounded-full border-2 border-brand-pink bg-brand-pink px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-transparent hover:text-brand-pink"
+    <div className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden bg-brand-purple px-6 py-24 text-center sm:px-10">
+      {/* Faint rotated watermark, consistent with footer's brand treatment */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-6 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-[120px] font-bold uppercase tracking-[6px] text-white/5 sm:block md:text-[180px]"
       >
-        Back to Home
-      </Link>
+        VideoForce
+      </span>
+
+      <div className="relative z-10 flex flex-col items-center">
+        <span className="mb-6 text-[10px] font-semibold uppercase tracking-[3px] text-brand-yellow">
+          <span className="pr-[10px]">01.</span>Message sent
+        </span>
+
+        <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-brand-yellow text-brand-purple">
+          <Icon icon="fa6-solid:check" className="text-3xl" />
+        </div>
+
+        <h1 className="mb-4 text-3xl font-light text-white sm:text-4xl md:text-5xl">
+          Thanks for reaching out!
+        </h1>
+        <p className="mb-10 max-w-md text-sm leading-relaxed text-white/60 sm:text-base">
+          We&apos;ve received your message and one of our strategists will get back
+          to you within 1 business day.
+        </p>
+
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
+          <Button href="/" variant="color">
+            Back to Home
+          </Button>
+          <Button href="/#sec4" variant="flat">
+            See Our Work
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
