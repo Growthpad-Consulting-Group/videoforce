@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
     };
   },
   images: {
+    loader: "custom",
+    loaderFile: "./src/lib/imagekit-loader.ts",
     remotePatterns: [
       {
         protocol: "https",
