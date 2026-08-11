@@ -120,3 +120,29 @@ export interface BlogPostInput {
   canonicalUrl?: string;
   noIndex?: boolean;
 }
+
+// ─── Admin Types ──────────────────────────────────────────────────────────────
+
+export interface Subscriber {
+  id: string;
+  email: string;
+  createdAt: string;
+}
+
+export interface ContactSubmission {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  comments: string;
+  status: "new" | "read";
+  createdAt: string;
+}
+
+export interface AdminUser {
+  id: string;
+  email: string;
+  name: string;
+  createdAt: string;
+}

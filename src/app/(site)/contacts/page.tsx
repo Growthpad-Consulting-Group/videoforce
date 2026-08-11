@@ -50,7 +50,7 @@ export default function ContactsPage() {
             {/* section-title style: yellow left bar, logo + tagline */}
             <div className="relative pl-[50px] py-5 mb-[50px] text-left
               before:content-[''] before:absolute before:top-0 before:left-[-2px] before:w-1 before:h-full before:bg-brand-yellow">
-              <Image src="/images/logo2.png" alt="Video Force" width={200} height={60} />
+              <Image src="/images/logo2.png" alt="Video Force" width={200} height={60} className="w-[200px] h-[60px]" />
               <p className="text-white/70 mt-3">
                 Contact us today for an exciting collaboration on video content and more.
               </p>

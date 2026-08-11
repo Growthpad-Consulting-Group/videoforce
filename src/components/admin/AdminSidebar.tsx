@@ -8,6 +8,14 @@ import { usePathname, useRouter } from "next/navigation";
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: "fa6-solid:gauge-high", exact: true },
   { href: "/admin/blog", label: "Blog", icon: "fa6-solid:newspaper", exact: false },
+  { href: "/admin/subscribers", label: "Subscribers", icon: "fa6-solid:envelope", exact: false },
+  {
+    href: "/admin/contact-submissions",
+    label: "Contact",
+    icon: "fa6-solid:comment-dots",
+    exact: false,
+  },
+  { href: "/admin/users", label: "Admins", icon: "fa6-solid:user-shield", exact: false },
 ];
 
 export default function AdminSidebar() {

@@ -49,12 +49,12 @@ export default function Footer() {
     e.preventDefault();
     if (!email) return;
     try {
-      const fd = new FormData();
-      fd.append("EMAIL", email);
-      await fetch(
-        "https://kwst.us18.list-manage.com/subscribe/post?u=42df802713d4826a4b137cd9e&id=815d11e811",
-        { method: "POST", body: fd, mode: "no-cors" }
-      );
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error();
       setSubMsg("We will be in touch soon!");
       setEmail("");
     } catch {

@@ -35,7 +35,7 @@ export default function BlogSubpageChrome({
               className="relative pl-[50px] py-5 mb-[50px] text-left
               before:content-[''] before:absolute before:top-0 before:left-[-2px] before:w-1 before:h-full before:bg-brand-yellow"
             >
-              <Image src="/images/logo2.png" alt="Video Force" width={200} height={60} />
+              <Image src="/images/logo2.png" alt="Video Force" width={200} height={60} className="w-[200px] h-[60px]" />
               <h1 className="text-white text-2xl md:text-3xl font-semibold mt-4">{title}</h1>
               {description && (
                 <p className="text-white/70 mt-3 max-w-2xl">{description}</p>

@@ -54,7 +54,7 @@ export default function Navigation({ isOpen, onClose }: Props) {
       >
         {/* Logo */}
         <Link className="block mb-8" href="/" onClick={onClose}>
-          <Image src="/images/logo2.png" alt="Video Force" width={200} height={60} />
+          <Image src="/images/logo2.png" alt="Video Force" width={200} height={60} className="w-[200px] h-[60px]" />
         </Link>
 
         {/* Nav links */}

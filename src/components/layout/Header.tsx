@@ -39,7 +39,7 @@ export default function Header() {
       >
         {/* Left — Logo */}
         <Link href="/" className="flex items-center">
-          <Image src="/images/logo.png" alt="Video Force" width={40} height={40} priority className="object-contain" />
+          <Image src="/images/logo.png" alt="Video Force" width={40} height={40} priority className="object-contain w-10 h-10" />
         </Link>
 
         {/* Center — Hamburger */}
@@ -65,7 +65,7 @@ export default function Header() {
       >
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center w-[80px] h-[80px] shrink-0">
-          <Image src="/images/logo.png" alt="Video Force Kenya" width={46} height={46} priority className="object-contain" />
+          <Image src="/images/logo.png" alt="Video Force Kenya" width={46} height={46} priority className="object-contain w-[46px] h-[46px]" />
         </Link>
 
         {/* Hamburger + MENU label */}
