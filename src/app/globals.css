@@ -183,6 +183,37 @@
 }
 .blog-prose img { border-radius: 6px; margin: 1.5rem auto; max-width: 100%; }
 
+/* Tables (public post + editor share the same look) */
+.blog-prose .table-wrap,
+.tiptap-prosemirror .tableWrapper {
+  margin: 1.5rem 0; max-width: 100%; overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.blog-prose table,
+.tiptap-prosemirror table {
+  width: 100%; border-collapse: collapse; table-layout: auto;
+  font-size: 14px; line-height: 1.5;
+}
+.blog-prose th, .blog-prose td,
+.tiptap-prosemirror th, .tiptap-prosemirror td {
+  border: 1px solid #e0e0e4; padding: 0.6rem 0.8rem;
+  text-align: left; vertical-align: top; min-width: 6rem;
+}
+.blog-prose th,
+.tiptap-prosemirror th { background: #f6f3f8; font-weight: 600; color: #333; }
+.blog-prose tbody tr:nth-child(even) td { background: #fafafa; }
+/* Pasted cells usually wrap content in <p>/lists — drop their outer spacing */
+.blog-prose td > :first-child, .blog-prose th > :first-child,
+.tiptap-prosemirror td > :first-child, .tiptap-prosemirror th > :first-child { margin-top: 0; }
+.blog-prose td > :last-child, .blog-prose th > :last-child,
+.tiptap-prosemirror td > :last-child, .tiptap-prosemirror th > :last-child { margin-bottom: 0; }
+.blog-prose td img, .tiptap-prosemirror td img { margin: 0.25rem 0; }
+.blog-prose td li, .blog-prose th li,
+.tiptap-prosemirror td li, .tiptap-prosemirror th li { margin-bottom: 0.15rem; }
+.blog-prose td li > p, .blog-prose th li > p,
+.tiptap-prosemirror td li > p, .tiptap-prosemirror th li > p { margin: 0; }
+.tiptap-prosemirror .selectedCell { background: rgba(187, 1, 104, 0.08); }
+
 /* ─── Rich text editor (TipTap) ──────────────────────────────────────────── */
 .tiptap-editor { border: 1px solid #ddd; background: #fff; }
 .tiptap-editor:focus-within { border-color: #bb0168; }

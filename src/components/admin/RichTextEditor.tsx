@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
+import { TableKit } from "@tiptap/extension-table";
 import TextAlign from "@tiptap/extension-text-align";
 import Underline from "@tiptap/extension-underline";
 import StarterKit from "@tiptap/starter-kit";
@@ -192,6 +193,42 @@ function Toolbar({
           : <Icon icon="fa6-solid:image" className="text-xs" />
         }
       </Btn>
+
+      <Sep />
+
+      {/* Table */}
+      <Btn
+        title="Insert table"
+        onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
+      >
+        <Icon icon="fa6-solid:table" className="text-xs" />
+      </Btn>
+      {editor.isActive("table") && (
+        <>
+          <Btn title="Add row below" onClick={() => editor.chain().focus().addRowAfter().run()}>
+            <Icon icon="mdi:table-row-plus-after" className="text-base" />
+          </Btn>
+          <Btn title="Delete row" onClick={() => editor.chain().focus().deleteRow().run()}>
+            <Icon icon="mdi:table-row-remove" className="text-base" />
+          </Btn>
+          <Btn title="Add column right" onClick={() => editor.chain().focus().addColumnAfter().run()}>
+            <Icon icon="mdi:table-column-plus-after" className="text-base" />
+          </Btn>
+          <Btn title="Delete column" onClick={() => editor.chain().focus().deleteColumn().run()}>
+            <Icon icon="mdi:table-column-remove" className="text-base" />
+          </Btn>
+          <Btn
+            title="Toggle header row"
+            active={editor.isActive("tableHeader")}
+            onClick={() => editor.chain().focus().toggleHeaderRow().run()}
+          >
+            <Icon icon="mdi:table-headers-eye" className="text-base" />
+          </Btn>
+          <Btn title="Delete table" onClick={() => editor.chain().focus().deleteTable().run()}>
+            <Icon icon="mdi:table-remove" className="text-base" />
+          </Btn>
+        </>
+      )}
     </div>
   );
 }
@@ -213,6 +250,8 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
   const editor = useEditor({
     // false avoids SSR/hydration mismatch warnings in Next.js App Router
     immediatelyRender: false,
+    // Re-render on selection changes so toolbar active states / table controls stay current
+    shouldRerenderOnTransaction: true,
     extensions: [
       // StarterKit v3 bundles link + underline; disable them here so our
       // separately-configured versions below are the only registered copies.
@@ -227,6 +266,8 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
         placeholder: placeholder ?? "Write your content here…",
       }),
       TextAlign.configure({ types: ["heading", "paragraph"] }),
+      // Keeps tables pasted from Word / Google Docs / Excel / web pages
+      TableKit.configure({ table: { resizable: false } }),
     ],
     content: value,
     onCreate({ editor }) {
