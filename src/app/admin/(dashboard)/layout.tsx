@@ -1,12 +1,15 @@
 import AdminSidebar from "@/components/admin/AdminSidebar";
-import { isAdminAuthenticated } from "@/lib/admin-auth";
+import { hasAdminSessionCookie, isAdminAuthenticated } from "@/lib/admin-auth";
 import { redirect } from "next/navigation";
 
 export default async function AdminDashboardLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   if (!(await isAdminAuthenticated())) {
-    redirect("/admin/login");
+    // A cookie that exists but fails verification means expired or mismatched secret
+    redirect(
+      (await hasAdminSessionCookie()) ? "/admin/login?error=session" : "/admin/login"
+    );
   }
 
   return (

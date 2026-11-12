@@ -7,12 +7,21 @@ export const metadata: Metadata = {
   title: "Sign in",
 };
 
-export default async function AdminLoginPage() {
+export default async function AdminLoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>;
+}) {
   if (await isAdminAuthenticated()) {
     redirect("/admin");
   }
 
   const configured = isAdminConfigured();
+  const { error } = await searchParams;
+  const initialError =
+    error === "session"
+      ? "Your session has expired or could not be verified. Please sign in again."
+      : "";
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-brand-purple px-6">
@@ -29,7 +38,7 @@ export default async function AdminLoginPage() {
             <code className="text-brand-yellow">.env.local</code> file, then restart the dev server.
           </div>
         ) : (
-          <AdminLoginForm />
+          <AdminLoginForm initialError={initialError} />
         )}
       </div>
     </div>

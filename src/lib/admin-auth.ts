@@ -4,9 +4,11 @@ import crypto from "crypto";
 export const ADMIN_SESSION_COOKIE = "vf_admin_session";
 
 function getSecret(): string | undefined {
+  // `||` (not `??`) so an empty ADMIN_SESSION_SECRET still falls back to JWT_SECRET
   return (
-    process.env.ADMIN_SESSION_SECRET?.trim() ??
-    process.env.JWT_SECRET?.trim()
+    process.env.ADMIN_SESSION_SECRET?.trim() ||
+    process.env.JWT_SECRET?.trim() ||
+    undefined
   );
 }
 
@@ -44,6 +46,12 @@ export function verifySessionToken(token: string | undefined): boolean {
   } catch {
     return false;
   }
+}
+
+/** True when a session cookie is present (valid or not). */
+export async function hasAdminSessionCookie(): Promise<boolean> {
+  const cookieStore = await cookies();
+  return Boolean(cookieStore.get(ADMIN_SESSION_COOKIE)?.value);
 }
 
 export async function isAdminAuthenticated(): Promise<boolean> {

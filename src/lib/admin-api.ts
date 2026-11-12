@@ -22,12 +22,25 @@ export async function adminLogin(
   password: string,
   rememberMe = true
 ): Promise<void> {
-  const res = await apiFetch("/api/admin/login", {
-    method: "POST",
-    body: JSON.stringify({ email, password, rememberMe }),
-  });
-  const data = (await res.json()) as { error?: string };
-  if (!res.ok) throw new Error(data.error ?? "Login failed");
+  let res: Response;
+  try {
+    res = await apiFetch("/api/admin/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password, rememberMe }),
+    });
+  } catch {
+    throw new Error("Network error — check your connection and try again.");
+  }
+
+  let data: { error?: string } = {};
+  try {
+    data = (await res.json()) as { error?: string };
+  } catch {
+    // non-JSON response (e.g. hosting error page)
+  }
+  if (!res.ok) {
+    throw new Error(data.error ?? `Login failed (status ${res.status}).`);
+  }
 }
 
 export async function adminLogout(): Promise<void> {
